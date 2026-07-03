@@ -1,0 +1,24 @@
+-api.py: Recibe las peticiones HTTP y devuelve JSON. Es la puerta de entrada del chatbot.
+
+-motor.py: Coordina todo el flujo del chatbot. Detecta intención y llama a la respuesta adecuada.	procesar_pregunta()
+
+-intenciones.py: Detecta qué quiere preguntar el usuario y extrae equipo/jugado:
+"jugadores de Lakers" → jugadores_equipo
+
+-respuestas.py: Genera las respuestas finales del chatbot.
+
+-cx_bd.py: Gestiona la conexión con SQLite.
+
+-consultas.py: Hace consultas a la base de datos SQLite.
+
+-apis_nba.py: Consulta APIs externas de la NBA.
+
+-alias.py: Traduce alias, abreviaturas y términos NBA.
+
+-interacciones_basicas.py: Responde saludos y preguntas sencillas.
+
+PARA AÑADIR DETECIÓN DE NUEVAS PRGUNTAS/RESPUESTAS:
+1.- intenciones.py → detectar nueva pregunta
+2.- consultas.py o apis_nba.py: Creas la función que obtiene los datos
+3.- respuestas.py → crear la respuesta
+4.- motor.py → conectar intención con respuesta
