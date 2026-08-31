@@ -96,7 +96,7 @@ def responder_ultimos_partidos_equipo(pregunta, equipo):
     if not datos:
         return "No encontré últimos partidos para ese equipo."
 
-    respuesta = f"Últimos partidos de {equipo} en temporada regular:"\n\n"
+    respuesta = f"Últimos partidos de {equipo} en temporada regular:\n\n"
 
     for partido in datos:
         resultado = partido["resultado"]
