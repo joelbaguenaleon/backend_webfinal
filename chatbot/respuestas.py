@@ -96,13 +96,22 @@ def responder_ultimos_partidos_equipo(pregunta, equipo):
     if not datos:
         return "No encontré últimos partidos para ese equipo."
 
-    respuesta = f"Últimos partidos de {equipo}:\n\n"
+    respuesta = f"Últimos partidos de {equipo} en temporada regular":\n\n"
 
     for partido in datos:
+        resultado = partido["resultado"]
+
+        if resultado == "W":
+            resultado_texto = "✅ Victoria"
+        elif resultado == "L":
+            resultado_texto = "❌ Derrota"
+        else:
+            resultado_texto = resultado
+
         respuesta += (
-            f"- {partido['fecha']} | "
-            f"{partido['matchup']} | "
-            f"{partido['resultado']}\n"
+            f"📅 {partido['fecha']}\n"
+            f"🏀 {partido['matchup']}\n"
+            f"{resultado_texto}\n\n"
         )
 
     return respuesta
@@ -115,7 +124,7 @@ def responder_estadisticas_jugador(pregunta, jugador):
         return "No encontré estadísticas de ese jugador en esta temporada."
 
     return (
-        f"Estadísticas de {datos['jugador']} en la temporada {datos['temporada']}:\n\n"
+        f"Estadísticas de {datos['jugador']} en la temporada regular {datos['temporada']}:\n\n"
         f"- Partidos: {datos['partidos']}\n"
         f"- Minutos por partido: {datos['minutos_por_partido']}\n"
         f"- Puntos por partido: {datos['puntos_por_partido']}\n"
