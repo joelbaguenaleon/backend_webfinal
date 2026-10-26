@@ -2,7 +2,7 @@ from pickletools import read_stringnl_noescape_pair
 import pandas as pd
 from nba_api.stats.endpoints import leaguedashplayerstats
 
-def obtener_stats(season="2025-26"): #funcion para obtener los datos de los playoffs
+def obtener_stats(season="2026-27"): #funcion para obtener los datos de los playoffs
     data = leaguedashplayerstats.LeagueDashPlayerStats(
         season=season,
         season_type_all_star="Playoffs",
@@ -49,7 +49,7 @@ def obtener_stats(season="2025-26"): #funcion para obtener los datos de los play
             df[col] = (df[col] * 100).round(2)
     return df
 
-def obtener_equipos(season="2025-26"): #obtener equipo
+def obtener_equipos(season="2026-27"): #obtener equipo
     df = obtener_stats(season)
 
     equipos = df[["TEAM_ABBREVIATION"]].drop_duplicates()
@@ -57,7 +57,7 @@ def obtener_equipos(season="2025-26"): #obtener equipo
 
     return equipos
 
-def obtener_jugadores_por_equipo(equipo, season="2025-26"): #obtener jugadores
+def obtener_jugadores_por_equipo(equipo, season="2026-27"): #obtener jugadores
     df = obtener_stats(season)
 
     jugadores = df[df["TEAM_ABBREVIATION"] == equipo]
@@ -73,7 +73,7 @@ def obtener_jugadores_por_equipo(equipo, season="2025-26"): #obtener jugadores
 
     return jugadores
 
-def comparar_jugadores(jugador1_id, jugador2_id, season="2025-26"): #comparar 2 jugadores
+def comparar_jugadores(jugador1_id, jugador2_id, season="2026-27"): #comparar 2 jugadores
 
     df = obtener_stats(season)
 
