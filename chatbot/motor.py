@@ -1,4 +1,4 @@
-from .consultas import cargar_equipos, cargar_jugadores
+from .apis_nba import cargar_equipos, cargar_jugadores
 from .interacciones_basicas import detectar_interaccion_basica
 from .intenciones import (
     detectar_equipo,

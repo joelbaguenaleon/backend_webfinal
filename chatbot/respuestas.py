@@ -1,10 +1,3 @@
-from .consultas import (
-    obtener_jugadores_equipo,
-    obtener_equipo_jugador,
-    obtener_info_jugador,
-    obtener_info_equipo,
-)
-
 from .alias import (
     traducir_posicion,
     traducir_conferencia,
@@ -13,6 +6,10 @@ from .alias import (
 )
 
 from .apis_nba import (
+    obtener_jugadores_equipo,
+    obtener_equipo_jugador,
+    obtener_info_jugador,
+    obtener_info_equipo,
     obtener_partidos_hoy,
     obtener_ultimos_partidos_equipo,
     obtener_estadisticas_jugador,
@@ -164,5 +161,3 @@ def responder_desconocido(pregunta):
         "'qué dorsal tiene Tatum', 'partidos de hoy', "
         "'estadísticas de Durant' o 'clasificación NBA'."
     )
-    
-
